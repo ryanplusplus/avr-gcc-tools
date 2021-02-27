@@ -1,7 +1,8 @@
 __avr_gcc_tools_upload_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 __dwdebug_path := $(__avr_gcc_tools_upload_path)bin/dwdebug-$(shell uname)
 
-FUSES :=
+FUSE_ARGS :=
+$(foreach f,$(FUSES),$(eval FUSE_ARGS += -U $(word 1,$(subst =, ,$(f))):w:$(word 2,$(subst =, ,$(f))):m))
 
 ifneq ($(EFUSE),)
 FUSES += -U efuse:w:$(EFUSE):m
@@ -18,7 +19,7 @@ endif
 ifeq ($(UPLOAD_TYPE),avrdude)
 .PHONY: upload
 upload: $(BUILD_DIR)/$(TARGET).hex
-	@avrdude -c $(AVRDUDE_PROGRAMMER_TYPE) -p $(MCU) $(AVRDUDE_PROGRAMMER_ARGS) $(FUSES) -U flash:w:$<
+	@avrdude -c $(AVRDUDE_PROGRAMMER_TYPE) -p $(MCU) $(AVRDUDE_PROGRAMMER_ARGS) $(FUSE_ARGS) -U flash:w:$<
 
 .PHONY: erase
 erase:
