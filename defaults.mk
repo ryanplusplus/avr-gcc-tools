@@ -33,4 +33,5 @@ CXXFLAGS := \
 LDFLAGS := \
   -Og \
   --gc-sections \
+  --relax \
   -Map=$(BUILD_DIR)/$(TARGET).map \
