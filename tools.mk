@@ -6,7 +6,7 @@ SYS_INC_DIRS += dfp/$(PACK)/include
 endif
 
 TOOLCHAIN_PREFIX := avr-
-include $(__avr_gcc_tools_path)gcc.mk
+include $(__avr_gcc_tools_path)gcc/tools.mk
 
 .PHONY: dfp
 dfp: dfp/$(PACK)/package.content
