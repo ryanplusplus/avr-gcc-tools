@@ -7,6 +7,7 @@ TOOLCHAIN_PREFIX := avr-
 include $(__avr_gcc_tools_path)gcc/tools.mk
 
 include $(__avr_gcc_tools_path)upload.mk
+include $(__avr_gcc_tools_path)debug.mk
 
 .PHONY: dfp
 dfp: dfp/$(DEVICE_PACK)/package.content
