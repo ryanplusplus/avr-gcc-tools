@@ -17,9 +17,13 @@ FUSES += -U lfuse:w:$(LFUSE):m
 endif
 
 ifeq ($(UPLOAD_TYPE),avrdude)
+.PHONY: fuse
+fuse:
+	avrdude -c $(AVRDUDE_PROGRAMMER_TYPE) -p $(MCU) $(AVRDUDE_PROGRAMMER_ARGS) $(FUSE_ARGS)
+
 .PHONY: upload
 upload: $(BUILD_DIR)/$(TARGET).hex
-	@avrdude -c $(AVRDUDE_PROGRAMMER_TYPE) -p $(MCU) $(AVRDUDE_PROGRAMMER_ARGS) $(FUSE_ARGS) -U flash:w:$<
+	avrdude -c $(AVRDUDE_PROGRAMMER_TYPE) -p $(MCU) $(AVRDUDE_PROGRAMMER_ARGS) -U flash:w:$<
 
 .PHONY: erase
 erase:
