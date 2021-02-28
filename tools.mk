@@ -11,4 +11,4 @@ include $(__avr_gcc_tools_path)dfp.mk
 
 .PHONY: install_toolchain
 install_toolchain:
-	sudo apt-get install gcc-avr binutils-avr gdb-avr avr-libc avrdude avarice
+	sudo apt-get install gcc-avr binutils-avr gdb-avr avr-libc
