@@ -33,5 +33,6 @@ endif
 ifeq ($(UPLOAD_TYPE),dwdebug)
 .PHONY: upload
 upload: $(BUILD_DIR)/$(TARGET).elf
-	@$(__dwdebug_path) device $(DWDEBUG_TOOL),l $<,qr
+	@(command -v setserial > /dev/null && setserial /dev/$(DWDEBUG_DEVICE) low_latency) || true
+	@$(__dwdebug_path) device $(DWDEBUG_DEVICE),l $<,qr
 endif

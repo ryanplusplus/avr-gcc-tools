@@ -10,8 +10,9 @@ $(BUILD_DIR)/debug-server-avarice-updi-ice:
 
 .PHONY: $(BUILD_DIR)/debug-server-dwdebug
 $(BUILD_DIR)/debug-server-dwdebug:
+	@(command -v setserial > /dev/null && setserial /dev/$(DWDEBUG_DEVICE) low_latency) || true
 	@echo "#!/bin/bash" > $@
-	@echo "$(__dwdebug_path) verbose,gdbserver,device $(DWDEBUG_TOOL)" >> $@
+	@echo "$(__dwdebug_path) verbose,gdbserver,device $(DWDEBUG_DEVICE)" >> $@
 	@chmod +x $@
 
 .PHONY: debug-deps
