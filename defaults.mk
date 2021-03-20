@@ -1,3 +1,6 @@
+__avr_gcc_tools_defaults_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+
+
 ASFLAGS := \
   -mmcu=$(MCU) \
   -g2 \
@@ -15,9 +18,7 @@ CPPFLAGS := \
   -Wfatal-errors \
   $(addprefix -D,$(DEFINES)) \
 
-ifneq ($(PACK),)
-CPPFLAGS += -Bdfp/$(PACK)/gcc/dev/$(MCU)
-endif
+CPPFLAGS += -B$(__avr_gcc_tools_defaults_path)dfp/$(DEVICE_PACK)/gcc/dev/$(MCU)
 
 CFLAGS := \
   -std=c99 \
