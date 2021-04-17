@@ -26,6 +26,7 @@ CFLAGS := \
 CXXFLAGS := \
   -fno-rtti \
   -fno-exceptions \
+  -fno-unwind-tables \
   -fno-non-call-exceptions \
   -fno-use-cxa-atexit \
   -Weffc++ \
