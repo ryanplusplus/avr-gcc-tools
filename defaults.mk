@@ -16,7 +16,6 @@ CPPFLAGS := \
   -Wextra \
   -Werror \
   -Wfatal-errors \
-  $(addprefix -D,$(DEFINES)) \
 
 CPPFLAGS += -B$(__avr_gcc_tools_defaults_path)dfp/$(DEVICE_PACK)/gcc/dev/$(MCU)
 
