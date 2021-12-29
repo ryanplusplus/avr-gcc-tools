@@ -1,6 +1,5 @@
 __avr_gcc_tools_defaults_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 
-
 ASFLAGS := \
   -mmcu=$(MCU) \
   -g2 \
