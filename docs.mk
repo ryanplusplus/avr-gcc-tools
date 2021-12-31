@@ -31,7 +31,7 @@ endif
 ifneq ($(HARDWARE_MANUAL_URL),)
 .PHONY: hardware_manual
 hardware_manual:
-	xdg-open $(HARDWARE_MANUAL_URL)
+	@xdg-open $(HARDWARE_MANUAL_URL)
 else
 .PHONY: hardware_manual
 hardware_manual:
@@ -41,7 +41,7 @@ endif
 ifneq ($(HARDWARE_MANUAL_URL),)
 .PHONY: datasheet
 datasheet:
-	xdg-open $(DATASHEET_URL)
+	@xdg-open $(DATASHEET_URL)
 else
 .PHONY: datasheet
 datasheet:
