@@ -1,4 +1,6 @@
-__avr_gcc_tools_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
+ifneq ($(__avr_gcc_tools_setup_included),Y)
+$(error setup.mk must be included before tools.mk)
+endif
 
 include $(__avr_gcc_tools_path)dfp-deps.mk
 
