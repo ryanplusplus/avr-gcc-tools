@@ -1,5 +1,5 @@
 __avr_gcc_tools_debug_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-__dwdebug_path := $(__avr_gcc_tools_debug_path)bin/dwdebug-$(shell uname)
+__dwdebug_path := $(__avr_gcc_tools_debug_path)bin/dwdebug-$(shell uname)-$(shell uname -m)
 
 .PHONY: $(BUILD_DIR)/debug-server-avarice-updi-ice
 $(BUILD_DIR)/debug-server-avarice-updi-ice:
