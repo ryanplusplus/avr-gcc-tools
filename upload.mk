@@ -1,5 +1,5 @@
 __avr_gcc_tools_upload_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
-__dwdebug_path := $(__avr_gcc_tools_upload_path)bin/dwdebug-$(shell uname)-$(shell uname -m)
+__dwdebug_path := $(__avr_gcc_tools_upload_path)bin/$(shell uname)-$(shell uname -m)/dwdebug
 
 FUSE_ARGS :=
 $(foreach f,$(FUSES),$(eval FUSE_ARGS += -U $(word 1,$(subst =, ,$(f))):w:$(word 2,$(subst =, ,$(f))):m))
