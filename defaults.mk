@@ -21,7 +21,7 @@ CPPFLAGS := \
 CPPFLAGS += -B$(__avr_gcc_tools_defaults_path)dfp/$(DEVICE_PACK)/gcc/dev/$(MCU)
 
 CFLAGS := \
-  -std=c99 \
+  -std=c11 \
 
 CXXFLAGS := \
   -fno-rtti \
