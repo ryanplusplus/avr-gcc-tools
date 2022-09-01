@@ -5,7 +5,7 @@ endif
 include $(__avr_gcc_tools_path)dfp-deps.mk
 
 TOOLCHAIN_PREFIX := avr-
-BUILD_DEPS += dfp
+BUILD_DEPS_ORDER_ONLY += dfp
 include $(__avr_gcc_tools_path)gcc/tools.mk
 
 include $(__avr_gcc_tools_path)upload.mk
