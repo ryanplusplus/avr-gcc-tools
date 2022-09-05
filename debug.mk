@@ -12,6 +12,7 @@ $(BUILD_DIR)/debug-server-avarice-updi-ice:
 $(BUILD_DIR)/debug-server-dwdebug:
 	@(command -v setserial > /dev/null && setserial /dev/$(DWDEBUG_DEVICE) low_latency) || true
 	@echo "#!/bin/bash" > $@
+	@echo "echo '\nInfo : Listening on port 50000 for gdb connection\n'" >> $@
 	@echo "$(__dwdebug_path) verbose,gdbserver,device $(DWDEBUG_DEVICE)" >> $@
 	@chmod +x $@
 
