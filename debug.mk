@@ -1,6 +1,8 @@
 __avr_gcc_tools_debug_path := $(dir $(realpath $(lastword $(MAKEFILE_LIST))))
 __dwdebug_path := $(__avr_gcc_tools_debug_path)bin/$(shell uname)-$(shell uname -m)/dwdebug
 
+BLOOM_INSIGHT_ENABLED ?= false
+
 .PHONY: $(BUILD_DIR)/debug-server-avarice-updi-ice
 $(BUILD_DIR)/debug-server-avarice-updi-ice:
 	@echo "#!/bin/bash" > $@
@@ -34,7 +36,7 @@ $(BUILD_DIR)/bloom.yaml:
 	@echo "    shutdownPostDebugSession: true" >> $@
 	@echo "" >> $@
 	@echo "insight:" >> $@
-	@echo "  enabled: false" >> $@
+	@echo "  enabled: $(BLOOM_INSIGHT_ENABLED)" >> $@
 	@echo "" >> $@
 
 .PHONY: $(BUILD_DIR)/debug-server-dwdebug
