@@ -21,14 +21,14 @@ $(BUILD_DIR)/debug-server-bloom: $(BUILD_DIR)/bloom.yaml
 $(BUILD_DIR)/bloom.yaml:
 	@echo "environments:" > $@
 	@echo "  default:" >> $@
-	@echo "    debugTool:" >> $@
+	@echo "    tool:" >> $@
 	@echo "      name: \"$(BLOOM_DEBUG_TOOL)\"" >> $@
 	@echo "" >> $@
 	@echo "    target:" >> $@
 	@echo "      name: \"$(MCU)\"" >> $@
 	@echo "      physicalInterface: \"$(BLOOM_DEBUG_INTERFACE)\"" >> $@
 	@echo "" >> $@
-	@echo "    debugServer:" >> $@
+	@echo "    server:" >> $@
 	@echo "      name: \"avr-gdb-rsp\"" >> $@
 	@echo "      ipAddress: \"127.0.0.1\"" >> $@
 	@echo "      port: 50000" >> $@
@@ -36,7 +36,7 @@ $(BUILD_DIR)/bloom.yaml:
 	@echo "    shutdownPostDebugSession: true" >> $@
 	@echo "" >> $@
 	@echo "insight:" >> $@
-	@echo "  enabled: $(BLOOM_INSIGHT_ENABLED)" >> $@
+	@echo "  activateOnStartup: $(BLOOM_INSIGHT_ENABLED)" >> $@
 	@echo "" >> $@
 
 .PHONY: $(BUILD_DIR)/debug-server-dwdebug

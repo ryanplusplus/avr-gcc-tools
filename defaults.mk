@@ -6,7 +6,7 @@ ASFLAGS := \
 
 CPPFLAGS := \
   -mmcu=$(MCU) \
-  -g \
+  -ggdb \
   -g2 \
   -Os \
   -fdata-sections \
