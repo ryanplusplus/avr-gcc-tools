@@ -16,7 +16,6 @@ CPPFLAGS := \
   -Werror \
   -Wfatal-errors \
   -Wcast-qual \
-  -Wconversion \
   -Wpedantic \
 
 CPPFLAGS += -B$(__avr_gcc_tools_defaults_path)dfp/$(DEVICE_PACK)/gcc/dev/$(MCU)
